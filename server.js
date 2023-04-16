@@ -1,10 +1,24 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-const app = require('./app');
+dotenv.config();
+mongoose.set("strictQuery", false);
+const { app } = require("./app");
 
-const DB_HOST = "mongodb+srv://yerma4ok:vk069231@cluster0.fvkwbxd.mongodb.net/db-contacts?retryWrites=true&w=majority";
+const { HOST_URI } = process.env;
 
-mongoose.connect(DB_HOST)
-.then(()=> app.listen(3000))
-.catch(error => console.log(error.message));
+const main = async () => {
+  try {
+    await mongoose.connect(HOST_URI);
+    console.log("Database connection successful");
 
+    app.listen(3000, () => {
+      console.log("Server running. Use our API on port: 3000");
+    });
+  } catch (error) {
+    console.log("Error while connecting MongoDB: ", error.message);
+    process.exit(1);
+  }
+};
+
+main();
