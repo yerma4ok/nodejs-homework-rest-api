@@ -1,5 +1,4 @@
 const { Contact } = require("../../models/contacts");
-
 const { httpError } = require("../../helps/httpError");
 
 async function updateFavorite(req, res, next) {

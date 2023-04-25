@@ -9,6 +9,8 @@ const { signup } = require("./auth");
 const { login } = require("./auth");
 const { logout } = require("./auth");
 const { current } = require("./auth");
+const { upload } = require("./service");
+const { uploadLocal } = require("./service");
 
 module.exports = {
   addContact,
@@ -21,4 +23,6 @@ module.exports = {
   login,
   logout,
   current,
+  upload,
+  uploadLocal,
 };
