@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
 dotenv.config();
 mongoose.set("strictQuery", false);
 const { app } = require("./app");
@@ -16,9 +15,8 @@ const main = async () => {
       console.log("Server running. Use our API on port: 3000");
     });
   } catch (error) {
-    console.log("Error while connecting MongoDB: ", error.message);
+    console.error("main failed:", error.message);
     process.exit(1);
   }
-};
-
+}
 main();
