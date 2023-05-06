@@ -11,6 +11,8 @@ const { logout } = require("./auth");
 const { current } = require("./auth");
 const { upload } = require("./service");
 const { uploadLocal } = require("./service");
+const { verifyEmail } = require("./auth");
+const { checkVerify } = require("./auth");
 
 module.exports = {
   addContact,
@@ -25,4 +27,6 @@ module.exports = {
   current,
   upload,
   uploadLocal,
+  verifyEmail,
+  checkVerify,
 };
